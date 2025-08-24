@@ -3,14 +3,28 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    {{ if .IsHome -}}
+
+    {{ if .IsHome }}
       <title>{{ .Site.Title }}</title>
-    {{- else -}}
+    {{ else }}
       <title>{{ .Site.Title }} &middot; {{ .Title }}</title>
-    {{- end }}
-    {{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+    {{ end }}
+
+    {{ if .Params.pageSummary -}}
+      {{ with .Params.pageSummary }}
+        <meta name="description" content="{{ . }}">
+        <meta property="og:description" content="{{ . }}" />
+      {{ end }}
+    {{ else }}
+      {{ with .Site.Params.description }}
+        <meta name="description" content="{{ . }}">
+        <meta property="og:description" content="{{ . }}" />
+      {{ end }}
+    {{ end }}
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
+    <meta name="referrer" content="always" />
     <meta name="googlebot" content="index,follow,snippet,archive">
     <link rel="stylesheet" href="{{ "hugo-theme-console/css/terminal-0.7.4.min.css" | absURL }}">
     <link rel="stylesheet" href="{{ "hugo-theme-console/css/animate-4.1.1.min.css" | absURL }}">
