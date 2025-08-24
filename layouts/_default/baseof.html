@@ -10,8 +10,8 @@
       <title>{{ .Site.Title }} &middot; {{ .Title }}</title>
     {{ end }}
 
-    {{ if .Params.pageSummary -}}
-      {{ with .Params.pageSummary }}
+    {{ if .Params.summary -}}
+      {{ with .Params.summary }}
         <meta name="description" content="{{ . }}">
         <meta property="og:description" content="{{ . }}" />
       {{ end }}
