@@ -114,6 +114,7 @@ h1::after {
   bottom: 5px;
   left: 0;
   display: var(--display-h1-decoration);
+  z-index: -1;
 }
 h1 + *,
 .logo + * {
