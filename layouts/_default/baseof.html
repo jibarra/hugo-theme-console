@@ -59,7 +59,7 @@
               :~#
               {{ range $index, $element := split $url "/" }}
                 {{ $.Scratch.Add "path" $element }}{{ if ne $element "" }}
-                  <a href='{{ $.Scratch.Get "path" }}'>{{ . }}</a>
+                  <a href='{{ $.Scratch.Get "path" }}' class="terminal-path">{{ . }}</a>
                   /
                   {{ $.Scratch.Add "path" "/" }}
                 {{ end }}
