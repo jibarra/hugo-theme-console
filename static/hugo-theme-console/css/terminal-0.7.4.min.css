@@ -173,7 +173,8 @@ pre {
   white-space: -o-pre-wrap;
 }
 pre code {
-  overflow-x: scroll;
+  /* This seems to add an extra space at the end of multi-line code blocks */
+  /*overflow-x: scroll;*/
   padding: 0;
   margin: 0;
   display: inline-block;
